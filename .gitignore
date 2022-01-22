@@ -3,6 +3,7 @@ node_modules/
 npm-debug.*
 package.json
 package-lock.json
+chessboard.py
 *.jks
 *.p8
 *.p12
