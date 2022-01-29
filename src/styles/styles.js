@@ -16,3 +16,5 @@ export default function getStyles(){
 
     return styles;
 }
+
+// export variable

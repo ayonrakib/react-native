@@ -1,8 +1,20 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 
 const HomeScreen = () => {
-  return <Text style={styles.text}>This is the home screen</Text>;
+  function showConsoleLogOnButtonPress(){
+    console.log("button pressed!")
+  }
+  return (
+    <View>
+      <Button onPress={showConsoleLogOnButtonPress} title='Click me!'/>
+      <Text style={styles.text}>This is the home screen</Text>
+      <TouchableOpacity>
+        <Text>Go to list demo</Text>
+      </TouchableOpacity>
+    </View>
+    
+  );
 };
 
 const styles = StyleSheet.create({
