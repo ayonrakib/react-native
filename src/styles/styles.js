@@ -10,8 +10,13 @@ export default function getStyles(){
         },
         nameBLockStyle:{
             fontSize: 30
+        },
+        imageBlock:{
+            display: "flex",
+            justifyContent:"center",
+            backgroundColor:"gray",
+            textAlign:"center"
         }
-        
     });
 
     return styles;

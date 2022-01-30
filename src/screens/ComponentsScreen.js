@@ -10,8 +10,9 @@ const ComponentsScreen = () => {
     }
     console.log("names component is: ",namesComponent)
     return(
-        <View> 
-            Hello world inside view
+        <View>
+            <Text>Hello world inside view</Text>
+            
             <Text style = {getStyles().textBlockStyle}><Text>Getting started with React Native</Text></Text> 
             <Text style = {getStyles().nameBLockStyle}>{namesComponent}</Text>
         </View>
