@@ -12,6 +12,7 @@ const HomeScreen = (props) => {
       <Button onPress={() => navigateToComponent('List')} title='Go to List component!'></Button>
       <Button onPress={() => navigateToComponent('Image')} title='Go to Image Component!'></Button>
       <Button onPress={() => navigateToComponent('Counter')} title='Go to Counter Component!'></Button>
+      <Button onPress={() => navigateToComponent('Color')} title='Go to Color Component!'></Button>
     </View>
     
   );
