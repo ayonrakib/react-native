@@ -1,0 +1,15 @@
+() => setRedColorRGBValue(redColorRGBValue+1)
+
+function increaseRedColorRGBValue(){
+    setRedColorRGBValue(redColorRGBValue+1)
+}
+
+jodi redColorRGBValue er initial value 0 hoy:
+
+increaseRedColorRGBValue()
+
+setRedColorRGBValue(redColorRGBValue+1)
+setRedColorRGBValue(0+1)
+setRedColorRGBValue(1)
+redColorRGBValue = 1
+rerender page
