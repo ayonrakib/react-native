@@ -12,7 +12,7 @@ export default function SquareScreen(){
     console.log("value of blue: ",blueColorRGBValue)
 
     function setColor(color, changeInRGBValue){
-        console.log("came in setcolor method")
+        console.log("came in setcolor method");
         if(color === "red"){
             if((redColorRGBValue + changeInRGBValue > 255) || (redColorRGBValue + changeInRGBValue < 0)){
                 return;
