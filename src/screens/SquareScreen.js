@@ -17,15 +17,24 @@ function reducer(state, action){
     // 10 ta state thakleo ek ta structure.
     // action er naam gula - naam dibo and data dibo.
 
-    // action = { name: colorTochange, data: {type: type , amount: amount}}
+    // action = { name: colorTochange, data: { amount: amount}}
 
     switch(action.name){
         case "redColorRGBValue":
-            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+            if((state.redColorRGBValue + action.data.amount <= 255) && (state.redColorRGBValue + action.data.amount >= 0)){
+                return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+            }
+            return state;
         case "greenColorRGBValue":
-            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
+            if((state.greenColorRGBValue + action.data.amount <= 255) && (state.greenColorRGBValue + action.data.amount >= 0)){
+                return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount }
+            }
+            return state;
         case "blueColorRGBValue":
-            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+            if((state.blueColorRGBValue + action.data.amount <= 255) && (state.blueColorRGBValue + action.data.amount >= 0)){
+                return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+            }
+            return state;
         default:
             return state;
     }
@@ -76,7 +85,7 @@ export default function SquareScreen(){
             <Text>Square Screen Component!</Text>
             <ColorCounter 
                 onIncrease = {() => dispatch({ name : "redColorRGBValue" , data : { amount : +15 }})}
-                onDecrease = {() => dispatch({ name : "redColorRGBValue" , data : { amount : +15 }})}
+                onDecrease = {() => dispatch({ name : "redColorRGBValue" , data : { amount : -15 }})}
                 color="red"
             />
             <ColorCounter
