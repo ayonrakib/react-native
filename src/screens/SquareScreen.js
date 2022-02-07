@@ -26,24 +26,6 @@ function reducer(state, action){
             return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
         case "blueColorRGBValue":
             return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
-        case "redColorRGBValue":
-            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
-        case "greenColorRGBValue":
-            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
-        case "blueColorRGBValue":
-            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
-        case "redColorRGBValue":
-            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
-        case "greenColorRGBValue":
-            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
-        case "blueColorRGBValue":
-            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
-        case "redColorRGBValue":
-            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
-        case "greenColorRGBValue":
-            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
-        case "blueColorRGBValue":
-            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
         default:
             return state;
     }
