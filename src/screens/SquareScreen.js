@@ -5,10 +5,53 @@ import ColorCounter from '../components/ColorCounter';
 function reducer(state, action){
     console.log("reducer method!")
     console.log("state in reducer method: ",state)
+    // state = {red: 0, green: 0, blue: 0}
+    // action = { colorToChange: "red" || "green" || "blue", amount: 15 || -15}
+    // proti ta action jar duita property: name -> dispatch kon action raise korse. 2nd -> data/payload.
+    // ekhon data te hajar ta field ase, sheita data er vitore object akare thakbe.
+    // ekek ta action er ekek structure howa jabe na, sobar eki format. sobar name ase and data ase, data is object. name is also object
+    // e.g.: login page e firstname change, lastname change, DOB change. proti state er jonno notun action create kortesi.
+    // jehetu usestate call korte parbo na, so action call korbo. name field ta dekhei ami bujhbo ke change hoise.
+    // age 10 ta state toiri kortam, ekhon 10 ta action toiri korbo. sob e same reducer method e jacche.
+    // current state and action console log korlei bujha jabe
+    // 10 ta state thakleo ek ta structure.
+    // action er naam gula - naam dibo and data dibo.
+
+    // action = { name: colorTochange, data: {type: type , amount: amount}}
+
+    switch(action.name){
+        case "redColorRGBValue":
+            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+        case "greenColorRGBValue":
+            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
+        case "blueColorRGBValue":
+            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+        case "redColorRGBValue":
+            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+        case "greenColorRGBValue":
+            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
+        case "blueColorRGBValue":
+            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+        case "redColorRGBValue":
+            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+        case "greenColorRGBValue":
+            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
+        case "blueColorRGBValue":
+            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+        case "redColorRGBValue":
+            return { ...state, redColorRGBValue: state.redColorRGBValue + action.data.amount}
+        case "greenColorRGBValue":
+            return { ...state, greenColorRGBValue: state.greenColorRGBValue + action.data.amount  }
+        case "blueColorRGBValue":
+            return { ...state, blueColorRGBValue: state.blueColorRGBValue + action.data.amount }
+        default:
+            return state;
+    }
 }
 
 export default function SquareScreen(){
     const [state, dispatch] = useReducer(reducer, { redColorRGBValue: 0, greenColorRGBValue: 0, blueColorRGBValue: 0})
+    const {redColorRGBValue, greenColorRGBValue, blueColorRGBValue } = state;
     console.log("state value at render component is: ",state)
 
     // console.log("squar screen component loaded!")
@@ -50,21 +93,26 @@ export default function SquareScreen(){
         <View>
             <Text>Square Screen Component!</Text>
             <ColorCounter 
-
+                onIncrease = {() => dispatch({ name : "redColorRGBValue" , data : { amount : +15 }})}
+                onDecrease = {() => dispatch({ name : "redColorRGBValue" , data : { amount : +15 }})}
                 color="red"
             />
             <ColorCounter
-   
+                onIncrease = {() => dispatch({ name : "greenColorRGBValue" , data : { amount : +15 }})}
+                onDecrease = {() => dispatch({ name : "greenColorRGBValue" , data : { amount : -15 }})}
                 color = "green"
             />
-            <ColorCounter 
-
+            <ColorCounter
+                onIncrease = {() => dispatch({ name : "blueColorRGBValue" , data : { amount : +15 }})}
+                onDecrease = {() => dispatch({ name : "blueColorRGBValue" , data : { amount : -15 }})}
                 color = "blue"
             />
+            
             <View 
                 style={{
                     height:150,
-                    width: 150
+                    width: 150,
+                    backgroundColor: `rgb(${redColorRGBValue}, ${greenColorRGBValue}, ${blueColorRGBValue})`
                 }}
             />
         </View>
