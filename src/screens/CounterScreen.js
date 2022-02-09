@@ -1,14 +1,28 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
 import { View, Text, Button } from "react-native";
 
 
+function reducer(stateDictionary, action){
+    console.log("came in reducer method!")
+    console.log('stateDictionary in reducer method: ', stateDictionary)
+    switch(action.name){
+        case "increaseCounter":
+            return { ...stateDictionary, count : stateDictionary.count + action.data.amount }
+        case "decreaseCounter":
+            return { ...stateDictionary, count :  stateDictionary.count - action.data.amount }
+        default:
+            return stateDictionary;
+    }
+}
+
 const CounterScreen = () => {
-    const [count, setCount] = useState(0);
+    const [stateDictionary, dispatch] = useReducer(reducer, {count : 0});
+    console.log("count stateDictionary at the first render is: ",stateDictionary)
     return (
         <View>
-            <Button title="Increase" onPress={() => {setCount(count+1)}}></Button>
-            <Button title="Decrease" onPress={() => {setCount(count-1)}}></Button>
-            <Text>Counter value: {count}</Text>
+            <Button title="Increase" onPress={() => dispatch({ name : "increaseCounter" , data : { amount : 1 }})}></Button>
+            <Button title="Decrease" onPress={() => dispatch({ name : "decreaseCounter" , data : { amount : 1 } })}></Button>
+            <Text>Counter value: {stateDictionary.count}</Text>
         </View>
     )
 }

@@ -16,6 +16,11 @@ export default function getStyles(){
             justifyContent:"center",
             backgroundColor:"gray",
             textAlign:"center"
+        },
+        textInputBlockStyle:{
+            margin:15,
+            borderColor:"black",
+            borderWidth:1
         }
     });
 
