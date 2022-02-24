@@ -15,6 +15,7 @@ const HomeScreen = (props) => {
       <Button onPress={() => navigateToComponent('Color')} title='Go to Color Component!'></Button>
       <Button onPress={() => navigateToComponent('Square')} title='Go to Square Component!'></Button>
       <Button onPress={() => navigateToComponent('Text')} title='Go to Text Component!'></Button>
+      <Button onPress={() => navigateToComponent('Box')} title='Go to Box Component!'></Button>
     </View>
     
   );
