@@ -1,11 +1,11 @@
-import react from "react";
+import React from "react";
 import { View, Text } from "react-native";
 
-export default function FirstLink(){
+export default function FourthLink(){
     return(
         <View>
             <Text>
-                First Link
+                Fourth Link
             </Text>
         </View>
     )
