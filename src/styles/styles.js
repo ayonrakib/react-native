@@ -26,8 +26,18 @@ export default function getStyles(){
             marginBottom: 2,
             alignItems: "center"
         },
+        bottomNavigationIconStyleActive:{
+            marginBottom: 2,
+            alignItems: "center",
+            backgroundColor: "purple",
+            borderRadius: 15
+        },
         bottomNavigationTextStyle:{
             color: "white",
+            marginTop: 2
+        },
+        bottomNavigationTextStyleActive:{
+            color: "black",
             marginTop: 2
         }
     });
