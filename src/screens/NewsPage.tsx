@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default function ThirdLink(){
+export default function SecondLink(){
     return(
         <View>
             <Text>
-                Third Link
+                News Page
             </Text>
         </View>
     )

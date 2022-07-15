@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default function SecondLink(){
+export default function PollPage(){
     return(
         <View>
             <Text>
-                Second Link
+                Poll Page
             </Text>
         </View>
     )

@@ -1,31 +1,31 @@
 import React, {useReducer} from 'react';
 import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 import BottomNavigation from '../components/BottomNavigation';
-import FirstLink from './FirstLink';
-import SecondLink from './SecondLink';
-import ThirdLink from './ThirdLink';
-import FourthLink from './FourthLink';
+import HomePage from './HomePage';
+import NewsPage from './NewsPage';
+import ProfilePage from './ProfilePage';
+import PollPage from './PollPage';
 
 function reducer(stateDictionary, action){
   console.log("came into reducer method!");
   switch(action.name){
       case "loadFirstComponent":
-          return { ...stateDictionary, componentToLoad : <FirstLink/>};
+          return { ...stateDictionary, componentToLoad : <HomePage/>};
           break;
       case "loadSecondComponent":
-          return { ...stateDictionary, componentToLoad : <SecondLink/>};
+          return { ...stateDictionary, componentToLoad : <NewsPage/>};
           break;
       case "loadThirdComponent":
-          return { ...stateDictionary, componentToLoad : <ThirdLink/>};
+          return { ...stateDictionary, componentToLoad : <ProfilePage/>};
           break;
       case "loadFourthComponent":
-          return { ...stateDictionary, componentToLoad : <FourthLink/>};
+          return { ...stateDictionary, componentToLoad : <PollPage/>};
           break;
   }
 }
 
 const HomeScreen = (props) => {
-  const [stateDictionary, dispatch] = useReducer(reducer, { componentToLoad : <FirstLink/> }); 
+  const [stateDictionary, dispatch] = useReducer(reducer, { componentToLoad : <HomePage/> }); 
   function showScreen(props){
       console.log("came to showScreen method and the native id is: ",props)
       if(props === 1){
@@ -50,7 +50,7 @@ const HomeScreen = (props) => {
   }
   return (
     <View style={{flex: 1}}>
-      <View style={{backgroundColor: "gray", flexDirection: "row", flex:10, justifyContent: "center", alignItems: "center"}}>
+      <View style={{backgroundColor: "white", flexDirection: "row", flex:10, justifyContent: "center", alignItems: "center"}}>
         <View>
           {stateDictionary.componentToLoad}
         </View>

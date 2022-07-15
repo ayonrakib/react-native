@@ -21,6 +21,14 @@ export default function getStyles(){
             margin:15,
             borderColor:"black",
             borderWidth:1
+        },
+        bottomNavigationIconStyle:{
+            marginBottom: 2,
+            alignItems: "center"
+        },
+        bottomNavigationTextStyle:{
+            color: "white",
+            marginTop: 2
         }
     });
 

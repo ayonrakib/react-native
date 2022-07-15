@@ -23,7 +23,8 @@ const navigator = createStackNavigator(
     Box: BoxScreen
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    headerMode: "none"
   }
 );
 
