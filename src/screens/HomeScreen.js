@@ -1,13 +1,15 @@
 import React, {useReducer} from 'react';
 import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 import BottomNavigation from '../components/BottomNavigation';
+import BottomNavigationIcon from '../components/BottomNavigationIcon';
+import getStyles from '../styles/styles';
 import HomePage from './HomePage';
 import NewsPage from './NewsPage';
 import ProfilePage from './ProfilePage';
 import PollPage from './PollPage';
 
 function reducer(stateDictionary, action){
-  console.log("came into reducer method!");
+  // console.log("came into reducer method!");
   switch(action.name){
       case "loadFirstComponent":
           return { ...stateDictionary, componentToLoad : <HomePage/>};
@@ -21,33 +23,52 @@ function reducer(stateDictionary, action){
       case "loadFourthComponent":
           return { ...stateDictionary, componentToLoad : <PollPage/>};
           break;
+      case "activateBottomNavigationPressableIcon":
+        return { ...stateDictionary, activeBottomNavigationPressableIconNumber: action.data.iconNumber }
+        break;
+      case "setComponentIndex":
+        console.log("the index to be set in setComponentIndex is: ",action.data)
+        return { ...stateDictionary, componentIndex : action.data.componentIndex, componentToLoad : screenComponents[action.data.componentIndex]};
+        break;
   }
 }
 
+
+const screenComponents = [<HomePage/>, <NewsPage/>, <ProfilePage/>, <PollPage/>];
+
 const HomeScreen = (props) => {
-  const [stateDictionary, dispatch] = useReducer(reducer, { componentToLoad : <HomePage/> }); 
-  function showScreen(props){
-      console.log("came to showScreen method and the native id is: ",props)
-      if(props === 1){
-          console.log("component 1 was clicked!")
-          dispatch({ name : "loadFirstComponent", data : { componentNumber : 1 }});
-      }
-      else if(props ==2){
-          console.log("component 2 was clicked!")
-          dispatch({ name : "loadSecondComponent", data : { componentNumber : 2 }});
-      }
-      else if(props ==3){
-          console.log("component 3 was clicked!")
-          dispatch({ name : "loadThirdComponent", data : { componentNumber : 3 }});
-      }
-      else if(props ==4){
-          console.log("component 4 was clicked!")
-          dispatch({ name : "loadFourthComponent", data : { componentNumber : 4 }});
-      }
+  const [stateDictionary, dispatch] = useReducer(reducer, 
+    { 
+      componentToLoad : <HomePage/>, 
+      activeBottomNavigationPressableIconComponent: <BottomNavigationIcon 
+                                                        iconName = "home" 
+                                                        iconColor = "white" 
+                                                        style={getStyles().bottomNavigationIconStyleActive} 
+                                                    />, 
+      activeBottomNavigationPressableIconNumber : 0, 
+      componentIndex: 0
+    }); 
+  
+  console.log("icon number active: ",stateDictionary.activeBottomNavigationPressableIconNumber)
+  console.log("index number active: ",stateDictionary.componentIndex)
+
+
+  function setComponentIndex(index){
+    console.log("came inside setComponentIndex method with value: ",index)
+    dispatch({ name : "setComponentIndex" , data : { componentIndex : index } });
   }
+
+
   function navigateToComponent(componentName){
     props.navigation.navigate(`${componentName}`)
   }
+
+
+  function activateBottomNavigationPressableIcon(props){
+    dispatch({ name: "activateBottomNavigationPressableIcon", data : { iconNumber: props } })
+  }
+
+
   return (
     <View style={{flex: 1}}>
       <View style={{backgroundColor: "white", flexDirection: "row", flex:10, justifyContent: "center", alignItems: "center"}}>
@@ -66,7 +87,12 @@ const HomeScreen = (props) => {
         <Button onPress={() => navigateToComponent('Text')} title='Go to Text Component!'></Button>
         <Button onPress={() => navigateToComponent('Box')} title='Go to Box Component!'></Button> */}
         <View>
-          <BottomNavigation showScreen={showScreen}/>
+          <BottomNavigation 
+                activateBottomNavigationPressableIcon={activateBottomNavigationPressableIcon}  
+                activeBottomNavigationPressableIconNumber={stateDictionary.activeBottomNavigationPressableIconNumber}
+                setComponentIndex = {setComponentIndex}
+                componentIndex = {stateDictionary.componentIndex}   
+          />
         </View>   
       </View>
     </View>

@@ -4,9 +4,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import getStyles from "../styles/styles";
 
 export default function BottomNavigationIcon(props:any){
-    const iconName = <Icon name={props.iconName} size={25} color={props.iconColor} />
+    const iconName = <Icon size={15} name={props.iconName} color={props.iconColor} />
     return (
-        <View style={getStyles().bottomNavigationIconStyle}>
+        <View style={props.style}>
             {iconName}
         </View>
     )

@@ -24,13 +24,20 @@ export default function getStyles(){
         },
         bottomNavigationIconStyle:{
             marginBottom: 2,
-            alignItems: "center"
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 5,
+            height: 25,
+            borderRadius: 5
         },
         bottomNavigationIconStyleActive:{
             marginBottom: 2,
             alignItems: "center",
-            backgroundColor: "purple",
-            borderRadius: 15
+            justifyContent: "center",
+            backgroundColor: "black",
+            padding: 5,
+            height: 25,
+            borderRadius: 5
         },
         bottomNavigationTextStyle:{
             color: "white",
@@ -39,10 +46,12 @@ export default function getStyles(){
         bottomNavigationTextStyleActive:{
             color: "black",
             marginTop: 2
+        },
+        bottomNamvigationPressableBlock:{
+            width: 50,
+            alignItems: "center"
         }
     });
 
     return styles;
 }
-
-// export variable
